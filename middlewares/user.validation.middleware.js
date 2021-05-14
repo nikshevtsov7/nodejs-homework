@@ -1,7 +1,7 @@
 const { user } = require('../models/user');
 const createUserValid = (req, res, next) => {
     // TODO: Implement validatior for user entity during creation
-
+    
     next();
 }
 

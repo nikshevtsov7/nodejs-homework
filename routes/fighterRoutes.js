@@ -40,7 +40,7 @@ router.get('/:id', function (req, res, next) {
 }, responseMiddleware)
 
 // add new fighter
-router.post('', function (req, res, next) {
+router.post('', createFighterValid, function (req, res, next) {
   const newFighterData = req.body;
 
   try {
@@ -57,7 +57,7 @@ router.post('', function (req, res, next) {
 }, responseMiddleware)
 
 //update fighter
-router.put('/:id', function (req, res, next) {
+router.put('/:id', updateFighterValid, function (req, res, next) {
   const id = req.params.id;
   const newData = req.body;
   const updatedFighter = FighterService.updateFighter(id, newData)

@@ -40,9 +40,8 @@ router.get('/:id', function (req, res, next) {
 }, responseMiddleware)
 
 // add new user
-router.post('', function (req, res, next) {
+router.post('', createUserValid, function (req, res, next) {
   const newUserData = req.body;
-
   try {
     if(!newUserData){
       throw new Error('Something wrong while added new user')
@@ -57,7 +56,7 @@ router.post('', function (req, res, next) {
 }, responseMiddleware)
 
 //update user
-router.put('/:id', function (req, res, next) {
+router.put('/:id', updateUserValid, function (req, res, next) {
   const id = req.params.id;
   const newData = req.body;
   const updatedUser = UserService.updateUser(id, newData)
